@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:47:16 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:34:05 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/19 22:50:16 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static bool	pthread_fork_mutex_destroy(t_philo *philo)
 {
 	int	i;
 
-	i = 0;
+	i = INITIAL_VALUE;
 	while (i < philo->common->number_of_philosophers)
 	{
 		if (pthread_mutex_destroy(&philo->common->fork_mutex[i]) != 0)
