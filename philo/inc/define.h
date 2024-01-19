@@ -1,0 +1,95 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   define.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/15 16:16:24 by toshota           #+#    #+#             */
+/*   Updated: 2024/01/19 22:32:08 by toshota          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DEFINE_H
+# define DEFINE_H
+
+/* include */
+# include <limits.h>
+# include <pthread.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/time.h>
+# include <unistd.h>
+
+/* define */
+// msg
+# define TAKING_A_FORK "has taken a fork\x1b[0m\x1b[39m\x1b[49m\n"
+# define EATING "\x1b[35mis eating\x1b[0m\x1b[39m\x1b[49m\n"
+# define SLEEPING "\x1b[36mis sleeping\x1b[0m\x1b[39m\x1b[49m\n"
+# define THINKING "\x1b[32mis thinking\x1b[0m\x1b[39m\x1b[49m\n"
+# define DIED "\x1b[31mdied\x1b[0m\x1b[39m\x1b[49m\n"
+
+// foreground color
+# define BLACK "\x1b[30m"
+# define RED "\x1b[31m"
+# define GREEN "\x1b[32m"
+# define YELLOW "\x1b[33m"
+# define BLUE "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN "\x1b[36m"
+# define WHITE "\x1b[37m"
+# define BOLD "\x1b[1m"
+
+// background color
+# define BLACK_B "\x1b[40m"
+# define RED_B "\x1b[41m"
+# define GREEN_B "\x1b[42m"
+# define YELLOW_B "\x1b[43m"
+# define BLUE_B "\x1b[44m"
+# define MAGENTA_B "\x1b[45m"
+# define CYAN_B "\x1b[46m"
+
+# define DEFAULT "\x1b[0m\x1b[39m\x1b[49m"
+
+// utils
+# define NO_MIN_NUM_OF_PHILO_MUST_EAT -1
+# define INITIAL_VALUE 1
+# define AVAILABLE 1
+# define UNAVAILABLE 0
+
+typedef struct s_philo_common
+{
+	int				number_of_philosophers;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				number_of_times_each_philosopher_must_eat;
+	int				born_count;
+	int				full_count;
+	bool			death_flag;
+	int				time_to_start_do_philo;
+	bool			*fork;
+
+	pthread_mutex_t	born_count_mutex;
+	pthread_mutex_t	full_count_mutex;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	death_flag_mutex;
+	pthread_mutex_t	time_to_start_do_philo_mutex;
+	pthread_mutex_t	*fork_mutex;
+}					t_philo_common;
+
+typedef struct s_philo
+{
+	pthread_mutex_t	last_time_to_eat_mutex;
+	pthread_t		thread_id;
+	int				philo_nb;
+	suseconds_t		last_time_to_eat;
+	int				count_to_eat;
+	int				right_fork_id;
+	int				left_fork_id;
+	t_philo_common	*common;
+}					t_philo;
+
+#endif
