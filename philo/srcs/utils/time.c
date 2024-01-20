@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:18:23 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:41:25 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 15:10:29 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ int	get_current_time(void)
 
 int	ft_usleep(int microseconds)
 {
-	int	start_time;
 	int	current_time;
+	int	end_time;
 
-	start_time = get_current_time();
-	if (start_time == -1)
-		return (-1);
-	while (true)
+	end_time = -1 + microseconds / 1000;
+	while (end_time == -1 + microseconds / 1000)
+		end_time = get_current_time() + microseconds / 1000;
+	while (end_time > get_current_time())
 	{
 		current_time = get_current_time();
-		usleep((current_time - start_time) / 8000);
 		if (current_time == -1)
-			return (-1);
-		if (current_time - start_time > microseconds / 1000)
-			return (0);
+			current_time = end_time;
+		usleep((end_time - current_time) / 4 * 1000);
 	}
+	return (0);
 }

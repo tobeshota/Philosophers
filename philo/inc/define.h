@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:16:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:32:08 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:44:39 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 
 /* define */
 // msg
-# define TAKING_A_FORK "has taken a fork\x1b[0m\x1b[39m\x1b[49m\n"
-# define EATING "\x1b[35mis eating\x1b[0m\x1b[39m\x1b[49m\n"
-# define SLEEPING "\x1b[36mis sleeping\x1b[0m\x1b[39m\x1b[49m\n"
-# define THINKING "\x1b[32mis thinking\x1b[0m\x1b[39m\x1b[49m\n"
-# define DIED "\x1b[31mdied\x1b[0m\x1b[39m\x1b[49m\n"
+# define TAKING_A_FORK "has taken a fork\n"
+# define EATING "is eating\n"
+# define SLEEPING "is sleeping\n"
+# define THINKING "is thinking\n"
+# define DIED "died\n"
 
 // foreground color
 # define BLACK "\x1b[30m"
