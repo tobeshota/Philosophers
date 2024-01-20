@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   take_a_fork.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
+/*   By: toshota <toshota@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:13:13 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 13:27:58 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:48:26 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ static void	take_one_fork(t_philo *philo, int fork_id)
 	put_msg(philo, TAKING_A_FORK);
 }
 
-static bool	is_odd(int num)
-{
-	return (num % 2 == 1);
-}
-
 bool	do_take_a_fork(t_philo *philo)
 {
 	int	dominant_side_fork_id;
@@ -54,8 +49,6 @@ bool	do_take_a_fork(t_philo *philo)
 
 	set_fork_id_depending_on_philo_nb \
 	(philo, &dominant_side_fork_id, &non_dominant_side_fork_id);
-	if (!is_odd(philo->philo_nb))
-		ft_usleep(10);
 	take_one_fork(philo, dominant_side_fork_id);
 	if (is_died(philo))
 		return (pthread_mutex_unlock \
