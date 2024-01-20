@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 20:04:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 14:15:25 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:32:15 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	put_argv_error(void)
 		CYAN"time_to_sleep " \
 		BLUE"number_of_times_each_philosopher_must_eat\n" \
 		DEFAULT"(each of argument is more than 0)\n" \
-		,STDERR_FILENO);
+		, STDERR_FILENO);
 }
 
 bool	is_arg_valid(int argc, char **argv)
