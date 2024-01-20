@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:39:32 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:33:21 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 15:19:21 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	pthread_fork_mutex_init(t_philo *philo)
 	i = INITIAL_VALUE;
 	philo->common->fork_mutex = \
 	(pthread_mutex_t *)malloc(sizeof(pthread_mutex_t)
-			* philo->common->number_of_philosophers);
+			* (philo->common->number_of_philosophers + 1));
 	if (check_malloc(philo->common->fork_mutex) == NULL)
 		return (false);
 	while (i <= philo->common->number_of_philosophers)

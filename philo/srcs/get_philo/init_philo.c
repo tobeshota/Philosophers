@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:35:06 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 12:45:29 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 15:20:16 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static bool	init_fork(t_philo_common *common)
 	int	i;
 
 	common->fork = (bool *)malloc(sizeof(bool)
-			* common->number_of_philosophers);
+			* (common->number_of_philosophers + 1));
 	if (check_malloc(common) == NULL)
 		return (false);
 	i = INITIAL_VALUE;
-	while (i < common->number_of_philosophers)
+	while (i <= common->number_of_philosophers)
 	{
 		common->fork[i] = AVAILABLE;
 		i++;
