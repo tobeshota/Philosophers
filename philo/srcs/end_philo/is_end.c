@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:41:35 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 13:03:07 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 13:47:22 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ bool	is_died(t_philo *philo)
 	int	current_time;
 
 	if (philo->common->number_of_philosophers == 1)
-		return (put_msg(philo, DIED), true);
+		return (ft_usleep(philo->common->time_to_die * 1000), \
+		put_msg(philo, DIED), true);
 	current_time = get_current_time();
 	if (current_time == -1)
 		return (true);
