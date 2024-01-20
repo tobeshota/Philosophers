@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:41:35 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:32:27 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 13:20:03 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ static bool	get_last_time_to_eat(t_philo *philo)
 
 void	do_sleep(t_philo *philo)
 {
-	ft_usleep(philo->common->time_to_sleep * 1000);
 	put_msg(philo, SLEEPING);
+	ft_usleep(philo->common->time_to_sleep * 1000);
 }
 
 bool	do_eat(t_philo *philo)
 {
+	put_msg(philo, EATING);
 	if (get_last_time_to_eat(philo) == false)
 		return (false);
 	ft_usleep(philo->common->time_to_eat * 1000);
-	put_msg(philo, EATING);
 	philo->count_to_eat++;
 	if (philo->count_to_eat == \
 	philo->common->number_of_times_each_philosopher_must_eat)

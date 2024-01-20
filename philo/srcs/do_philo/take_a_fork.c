@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:13:13 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/19 22:35:14 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/20 13:27:58 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	take_one_fork(t_philo *philo, int fork_id)
 {
 	pthread_mutex_lock(&philo->common->fork_mutex[fork_id]);
 	philo->common->fork[fork_id] = UNAVAILABLE;
+	put_msg(philo, TAKING_A_FORK);
 }
 
 static bool	is_odd(int num)
@@ -56,9 +57,11 @@ bool	do_take_a_fork(t_philo *philo)
 	if (!is_odd(philo->philo_nb))
 		ft_usleep(10);
 	take_one_fork(philo, dominant_side_fork_id);
+	if (is_died(philo))
+		return (pthread_mutex_unlock \
+		(&philo->common->fork_mutex[dominant_side_fork_id]), false);
 	take_one_fork(philo, non_dominant_side_fork_id);
 	if (is_died(philo))
 		return (put_forks(philo), false);
-	put_msg(philo, TAKING_A_FORK);
 	return (true);
 }
