@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_arg_valid.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toshota <toshota@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 20:04:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 14:32:15 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/21 13:36:57 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static void	put_argc_error(void)
 		MAGENTA"time_to_eat " \
 		CYAN"time_to_sleep " \
 		BLUE"number_of_times_each_philosopher_must_eat\n" \
-		DEFAULT, STDERR_FILENO);
+		DEFAULT"(each of argument is more than 0)\n" \
+		, STDERR_FILENO);
 }
 
 static void	put_argv_error(void)
