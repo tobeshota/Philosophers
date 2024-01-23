@@ -6,14 +6,14 @@
 #    By: toshota <toshota@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 13:39:44 by toshota           #+#    #+#              #
-#    Updated: 2024/01/23 19:44:08 by toshota          ###   ########.fr        #
+#    Updated: 2024/01/23 20:01:10 by toshota          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	philo
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
-CFLAGS		+=	-g -fsanitize=thread
+# CFLAGS		+=	-g -fsanitize=thread
 RM			=	rm -rf
 INC			=	-I inc/ -I srcs/
 SRCS_DIR	=	srcs/
