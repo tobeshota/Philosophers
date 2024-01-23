@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 20:04:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/23 19:40:19 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/23 20:23:54 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ bool	is_arg_valid(int argc, char **argv)
 
 	if (argc < 5 || argc > 6)
 		return (put_argc_error(), false);
-	if (ft_atoi(argv[1]) > MAXIMUM)
-		return (put_argc_error(), false);
 	i = 1;
 	while (argv[i])
 	{
@@ -72,5 +70,7 @@ bool	is_arg_valid(int argc, char **argv)
 			return (put_argv_error(), false);
 		i++;
 	}
+	if (ft_atoi(argv[1]) > MAXIMUM)
+		return (put_argc_error(), false);
 	return (true);
 }
