@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 20:04:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/23 17:48:04 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/23 19:40:19 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	put_argc_error(void)
 		MAGENTA"time_to_eat " \
 		CYAN"time_to_sleep " \
 		BLUE"number_of_times_each_philosopher_must_eat\n" \
-		DEFAULT"(each of argument is 1 ~ 10000)\n" \
+		DEFAULT \
 		, STDERR_FILENO);
 }
 
@@ -53,7 +53,7 @@ static void	put_argv_error(void)
 		MAGENTA"time_to_eat " \
 		CYAN"time_to_sleep " \
 		BLUE"number_of_times_each_philosopher_must_eat\n" \
-		DEFAULT"(each of argument is 1 ~ 10000)\n" \
+		DEFAULT \
 		, STDERR_FILENO);
 }
 
@@ -63,10 +63,12 @@ bool	is_arg_valid(int argc, char **argv)
 
 	if (argc < 5 || argc > 6)
 		return (put_argc_error(), false);
+	if (ft_atoi(argv[1]) > MAXIMUM)
+		return (put_argc_error(), false);
 	i = 1;
 	while (argv[i])
 	{
-		if (is_str_digit(argv[i]) == false || ft_atoi(argv[i]) < 1 || ft_atoi(argv[i]) > MAXIMUM)
+		if (is_str_digit(argv[i]) == false || ft_atoi(argv[i]) < 1)
 			return (put_argv_error(), false);
 		i++;
 	}

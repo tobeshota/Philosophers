@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:13:13 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 14:53:13 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/23 19:58:27 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,8 @@
 static void	set_fork_id_depending_on_philo_nb(t_philo *philo, \
 int *dominant_side_fork_id, int *non_dominant_side_fork_id)
 {
-	if (philo->philo_nb % 2 == 0)
-	{
-		*dominant_side_fork_id = philo->right_fork_id;
-		*non_dominant_side_fork_id = philo->left_fork_id;
-	}
-	else
-	{
-		*dominant_side_fork_id = philo->left_fork_id;
-		*non_dominant_side_fork_id = philo->right_fork_id;
-	}
+	*dominant_side_fork_id = philo->left_fork_id;
+	*non_dominant_side_fork_id = philo->right_fork_id;
 }
 
 void	put_forks(t_philo *philo)

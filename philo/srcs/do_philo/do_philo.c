@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   do_philo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: toshota <toshota@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:41:35 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 14:48:36 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/23 19:57:30 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*do_philo(t_philo *philo)
 	if (sleep_until_all_threads_are_created(philo) == false)
 		return (NULL);
 	if (!is_odd(philo->philo_nb))
-		ft_usleep(10);
+		ft_usleep((philo->common->time_to_eat / 2) * 1000);
 	while (true)
 	{
 		if (do_take_a_fork(philo) == false)
