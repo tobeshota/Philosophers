@@ -6,7 +6,7 @@
 /*   By: toshota <toshota@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:16:24 by toshota           #+#    #+#             */
-/*   Updated: 2024/01/20 14:44:39 by toshota          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:45:35 by toshota          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # define INITIAL_VALUE 1
 # define AVAILABLE 1
 # define UNAVAILABLE 0
+# define MAXIMUM 10000
 
 typedef struct s_philo_common
 {
